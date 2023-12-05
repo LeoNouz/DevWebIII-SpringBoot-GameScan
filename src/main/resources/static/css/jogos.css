@@ -1,0 +1,233 @@
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* Contraste de cores para o texto na navbar */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Style to keep the user icon and user name inline */
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Add margin or padding as needed */
+.user-name {
+    margin-left: 5px; /* Adjust the margin as needed to separate the icon and name */
+}
+
+/* Aumentar o tamanho da fonte para dispositivos maiores */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 18px;
+    }
+}
+
+/* Adicionar espaçamento entre os itens da navbar */
+.navbar-nav {
+    margin-right: 10px; /* Espaçamento à direita entre os itens */
+}
+
+/* Ícone de pesquisa mais visível */
+.search-icon {
+    fill: #ffffff; /* Cor do ícone */
+    margin-right: 5px;
+}
+
+/* Melhorias no botão de pesquisa */
+.form-control {
+    border-radius: 0;
+    border-color: #ffffff; /* Cor da borda */
+}
+
+.btn-outline-secondary {
+    border-radius: 0;
+    background-color: transparent; /* Fundo transparente */
+    border-color: #ffffff; /* Cor da borda */
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Reset de margem e preenchimento padrão */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adicionar espaçamento entre elementos */
+body {
+    font-family: Arial, sans-serif;
+    padding-bottom: 20px; /* Espaçamento inferior */
+}
+
+.category-search {
+    display: flex;
+    align-items: center;
+    background-color: #272727;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    margin: 0 auto;
+}
+
+.category-search input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.category-search input::placeholder {
+    color: #999;
+}
+
+.category-search input:focus {
+    border: none;
+    outline: none;
+}
+
+.category-search input[type="text"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    padding: 0;
+}
+
+.category-search input[type="text"]::placeholder {
+    color: #999;
+}
+
+.category-search input[type="text"]:focus {
+    border: none;
+    outline: none;
+}
+
+/* Center and wrap repository cards with margins for ads */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center-align repository cards */
+    align-items: flex-start;
+    margin: 0 20px; /* Margins for ads on the edges */
+}
+
+/* Container for repository cards */
+.game-container {
+    margin: 20px 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 300px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for repository images */
+.game-container img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+}
+
+/* Style for repository images on hover */
+.game-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the card body */
+.game-container .card-body {
+    padding: 1rem;
+}
+
+/* Style for the repository title */
+.game-title {
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    margin-top: 10px; /* Add space between the image and title */
+    text-align: center; /* Center the title */
+    color: #333; /* Set the title color */
+    /* Add any additional styling you prefer */
+}
+
+/* Style for custom buttons */
+.custom-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+/* Style for custom buttons on hover */
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for custom icons */
+.custom-icon {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+}
+
+/* Style for custom anchors */
+.custom-anchor {
+    text-decoration: none;
+    color: #333;
+}
+
+.small.text-muted {
+    font-size: 12px;
+    color: #888; /* Adjust the color as needed */
+    margin-top: 5px; /* Add margin for spacing */
+}
+
+.no-more-games-message {
+    text-align: center;
+    margin: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-indicator {
+    text-align: center;
+    margin: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,147 @@
+/* Contraste de cores para o texto na navbar */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Style to keep the user icon and user name inline */
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Add margin or padding as needed */
+.user-name {
+    margin-left: 5px; /* Adjust the margin as needed to separate the icon and name */
+}
+
+/* Aumentar o tamanho da fonte para dispositivos maiores */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 18px;
+    }
+}
+
+/* Adicionar espaçamento entre os itens da navbar */
+.navbar-nav {
+    margin-right: 10px; /* Espaçamento à direita entre os itens */
+}
+
+/* Ícone de pesquisa mais visível */
+.search-icon {
+    fill: #ffffff; /* Cor do ícone */
+    margin-right: 5px;
+}
+
+/* Melhorias no botão de pesquisa */
+.form-control {
+    border-radius: 0;
+    border-color: #ffffff; /* Cor da borda */
+}
+
+.btn-outline-secondary {
+    border-radius: 0;
+    background-color: transparent; /* Fundo transparente */
+    border-color: #ffffff; /* Cor da borda */
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Reset de margem e preenchimento padrão */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adicionar espaçamento entre elementos */
+body {
+    font-family: Arial, sans-serif;
+    padding-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Custom styles for the repository-details-container */
+#game-details-container {
+    background-color: #f8f9fa; /* Background color */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+}
+
+/* Game name styling */
+#game-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Text color */
+}
+
+/* Game image styling */
+#game-image {
+    max-width: 100%;
+    border: 1px solid #ddd; /* Image border */
+    border-radius: 4px; /* Rounded corners for image */
+}
+
+/* Game metadata styling */
+.game-metadata h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.game-metadata p {
+    font-size: 16px;
+}
+
+/* Game platforms list styling */
+#game-platforms {
+    list-style-type: none; /* Remove list bullets */
+    padding-left: 0;
+}
+
+#game-platforms li {
+    margin-bottom: 5px;
+}
+
+/* Game website link styling */
+#game-website {
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+}
+
+/* Game description styling */
+.game-description h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.game-description p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Game details section styling */
+.game-details h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Game details info styling */
+.game-details-info h3 {
+    font-size: 16px;
+    margin-top: 15px;
+    color: #555; /* Subtitle color */
+}
+
+.game-details-info p {
+    font-size: 16px;
+}
+
+/* Metascore styling */
+#game-metascore {
+    font-weight: bold;
+    color: #ff9900; /* Metascore color */
+}

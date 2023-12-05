@@ -1,0 +1,169 @@
+/* Contraste de cores para o texto na navbar */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Style to keep the user icon and user name inline */
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Add margin or padding as needed */
+.user-name {
+    margin-left: 5px; /* Adjust the margin as needed to separate the icon and name */
+}
+
+/* Aumentar o tamanho da fonte para dispositivos maiores */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 18px;
+    }
+}
+
+/* Adicionar espaçamento entre os itens da navbar */
+.navbar-nav {
+    margin-right: 10px; /* Espaçamento à direita entre os itens */
+}
+
+/* Ícone de pesquisa mais visível */
+.search-icon {
+    fill: #ffffff; /* Cor do ícone */
+    margin-right: 5px;
+}
+
+/* Melhorias no botão de pesquisa */
+.form-control {
+    border-radius: 0;
+    border-color: #ffffff; /* Cor da borda */
+}
+
+.btn-outline-secondary {
+    border-radius: 0;
+    background-color: transparent; /* Fundo transparente */
+    border-color: #ffffff; /* Cor da borda */
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Reset de margem e preenchimento padrão */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adicionar espaçamento entre elementos */
+body {
+    font-family: Arial, sans-serif;
+    padding-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Estilos para a seção principal */
+main {
+    padding: 20px;
+    background-color: #f0f0f0; /* Cor de fundo para a seção principal */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+/* Estilos para os botões */
+.button-container {
+    text-align: center; /* Centraliza os botões horizontalmente */
+    margin-top: 20px;
+}
+
+.custom-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #ffffff; /* Cor de fundo branca padrão */
+    color: #000; /* Cor do texto preto padrão */
+    transition: background-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+.custom-button:nth-child(1):hover {
+    background-color: #007bff; /* Cor de fundo azul para Playstation */
+    color: #fff; /* Cor do texto branco */
+}
+
+.custom-button:nth-child(1):active {
+    background-color: #007bff; /* Cor de fundo azul para Playstation */
+    color: #fff; /* Cor do texto branco */
+}
+
+.custom-button:nth-child(2):hover {
+    background-color: #28a745; /* Cor de fundo verde para Xbox */
+    color: #fff; /* Cor do texto branco */
+}
+
+.custom-button:nth-child(2):active {
+    background-color: #28a745; /* Cor de fundo verde para Xbox */
+    color: #fff; /* Cor do texto branco */
+}
+
+.custom-button:nth-child(3):hover {
+    background-color: #ff0000; /* Cor de fundo vermelha para Nintendo */
+    color: #fff; /* Cor do texto branco */
+}
+
+.custom-button:nth-child(3):active {
+    background-color: #ff0000; /* Cor de fundo vermelha para Nintendo */
+    color: #fff; /* Cor do texto branco */
+}
+
+/* Estilos para o título da seção */
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.3;
+}
+
+
+/* Use Bootstrap classes for responsive columns */
+#news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Simplify styles for news articles */
+.news-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: calc(33.33% - 20px);
+    transition: transform 0.3s;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.news-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.news-item h2 {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.news-item p {
+    font-size: 16px;
+    color: #555;
+}

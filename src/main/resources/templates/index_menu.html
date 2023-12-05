@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Zero - Index Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+        <div class="container-xl">
+            <a class="navbar-brand" href="/">GameScan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample07XL">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/games">Jogos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Listas
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" th:href="@{'/games/list/jogando'}">Jogando</a></li>
+                            <li><a class="dropdown-item" th:href="@{'/games/list/parajogar'}">Para Jogar</a></li>
+                            <li><a class="dropdown-item" th:href="@{'/games/list/zerados'}">Zerados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Search bar form with margin -->
+            <form class="d-flex me-3"> <!-- Added margin class "me-3" -->
+                <input type="text" id="searchInput" name="searchInput" class="form-control me-2" placeholder="Pesquisar notícias">
+                <button class="btn btn-outline-secondary" type="button" onclick="searchNews()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search search-icon" viewBox="0 0 16 16">
+                        <title>Search</title>
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </form>
+
+            <!-- Login and Sign-up buttons -->
+            <div>
+                <a href="/login" class="btn btn-primary">Login</a>
+            </div>
+            <div> <!-- Added margin here for space -->
+                <a href="/user/register" class="btn btn-outline-light">Sign-up</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Search buttons -->
+<main>
+    <!-- Seção principal do seu conteúdo -->
+    <div class="button-container">
+        <button class="custom-button" onclick="searchByTag('Playstation', this)">Playstation</button>
+        <button class="custom-button" onclick="searchByTag('Xbox', this)">Xbox</button>
+        <button class="custom-button" onclick="searchByTag('Nintendo', this)">Nintendo</button>
+    </div>
+</main>
+
+<script>
+    function searchNews() {
+        const searchInput = document.getElementById("searchInput");
+        const searchTerm = searchInput.value;
+        performSearch(searchTerm);
+    }
+
+    let activeButton = null; // Inicialmente, nenhum botão está ativo
+
+    function searchByTag(tag, button) {
+        // Atualize o texto do <h1> com base no botão clicado
+        const h1 = document.querySelector("header h1.section-title");
+        h1.textContent = `${tag} Notícias`;
+
+        performSearch(tag);
+
+        if (activeButton) {
+            activeButton.classList.remove("active"); // Remove a classe "active" do botão anterior
+        }
+
+        button.classList.add("active"); // Adiciona a classe "active" ao botão atual
+        activeButton = button; // Atualiza o botão ativo
+    }
+
+    function performSearch(searchTerm) {
+        // Limpe o conteúdo atual do container de notícias
+        const newsContainer = document.getElementById("news-container");
+        newsContainer.innerHTML = "";
+
+        // Faça uma solicitação à API GNews com a palavra-chave da pesquisa
+        fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=pt&token=9ea6be2b99fa4d38bf0e536bd3416619`)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.articles && data.articles.length > 0) {
+                    // Itere pelas notícias e crie elementos HTML para exibi-las
+                    data.articles.forEach((article) => {
+                        const newsItem = document.createElement("div");
+                        newsItem.classList.add("news-item");
+
+                        const image = document.createElement("img");
+                        image.src = article.image;
+                        image.alt = article.title;
+
+                        const title = document.createElement("h2");
+                        title.textContent = article.title;
+
+                        const description = document.createElement("p");
+                        description.textContent = article.description;
+
+                        const link = document.createElement("a");
+                        link.textContent = "Leia mais";
+                        link.href = article.url;
+                        link.target = "_blank"; // Abre o link em uma nova guia
+
+                        newsItem.appendChild(image);
+                        newsItem.appendChild(title);
+                        newsItem.appendChild(description);
+                        newsItem.appendChild(link);
+
+                        newsContainer.appendChild(newsItem);
+                    });
+                } else {
+                    newsContainer.textContent = "Nenhuma notícia encontrada.";
+                }
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar notícias:", error);
+                newsContainer.textContent = "Erro ao buscar notícias.";
+            });
+    }
+
+    function changeColor(button) {
+        // Remove a classe "active" de todos os botões
+        document.querySelectorAll(".custom-button").forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        // Adiciona a classe "active" apenas ao botão clicado
+        button.classList.add("active");
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
